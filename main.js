@@ -9,6 +9,10 @@ function add_list(){
         {
           label: "Week 2 notes",
           url: "week2/index.html"
+        },
+        {
+          label: "Team Projects",
+          url: "team_projects/index.html"
         }
       ]
 
