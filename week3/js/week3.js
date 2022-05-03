@@ -42,6 +42,9 @@ function testing_object(){
     let phrase = document.getElementById('phrase');
     phrase.textContent = superman.fly();
     phrase.setAttribute('class', 'phrase_style')
+
+    //Testing Event Listener
+    addEventListener('click', () => alert('You Clicked!'));
 }
 
 ////////////////////////////////////////////////
@@ -134,6 +137,35 @@ function main(){
         }];
 
         exercise_two(library);
+
+        //Example COde of Event Listener
+
+        // function doSomething(){
+        //     console.log('Something Happened!');
+        // }
+
+        function doSomething(event){
+            console.log(`screen: (${event.screenX},${event.screenY}), page: (${event.pageX},${event.pageY}), client: (${event.screenX},${event.screenY})`)
+        }
+        
+        addEventListener('click', doSomething);
+
+// const clickParagraph = document.getElementById('click');
+
+// clickParagraph.addEventListener('click',() => console.log('click') );
+// clickParagraph.addEventListener('mousedown',() => console.log('down') );
+// clickParagraph.addEventListener('mouseup',() => console.log('up') );
+
+// addEventListener('touchend', () => console.log('Touch stopped'));
+
+const onceParagraph = document.getElementById('once');
+onceParagraph.addEventListener('click', remove);
+
+function remove() {
+    console.log('Enjoy this while it lasts!');
+    onceParagraph.style.backgroundColor = 'pink';
+    onceParagraph.removeEventListener('click',remove);
+}
 }
 
 main()
