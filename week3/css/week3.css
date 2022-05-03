@@ -1,0 +1,17 @@
+.p_border {
+    border-bottom: solid 1px black;
+    padding:10px;
+}
+
+.p_style{
+    color:red;
+    font-size:30px;
+}
+
+.phrase_style{
+    color:blue;
+}
+
+.bigger_font{
+    font-size: 55px;
+}

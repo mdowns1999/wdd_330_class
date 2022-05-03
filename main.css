@@ -83,8 +83,7 @@ a:hover{
 }
 
 .example_images{
-    margin-left: 60px;
-    width:350px;
+    width:250px;
     padding:20px;
 }
 
@@ -101,9 +100,9 @@ a:hover{
     }
 
     .example_images{
-        margin-left: 200px;
+        margin-left: 150px;
         width:400px;
+        padding:20px;
     }
-    
 
 }
