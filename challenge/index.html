@@ -6,28 +6,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="css/todo.css">
     <title>WDD 330 Portfolio</title>
 </head>
 
 <body>
+
     <header>
         <h1>Challenge 1: TODO LIST</h1>
     </header>
 
     <main>
-        <h2>Notes:</h2>
+        <h1>TODOS</h1>
+    <section class="challenge_1">
+      <div class="list_display">
+        <ul class="todo_list">
+        </ul>
+      </div>
 
 
-        <h2>Questions:</h2>
 
 
-        <h2>Exercises:</h2>
+
+      <div class="todo_filter">
+          <span id="count">Count: 0</span>
+
+          <a id="all">All</a>
+
+          <a id="active">Active</a>
+
+          <a id="completed">Completed</a>
+
+        </div>
+
+
+      <div class="list_input">
+        <input type="text" id="todo" placeholder="TODO Item" required>
+        <button class = 'toDoBtn' type="submit">+</button>
+      </div>
+
+    </section>
+
 
 
         <div class="button_box">
             <a href="../index.html" class="button">Back to Portal Home</a>
         </div>
-
 
     </main>
 
@@ -36,7 +60,8 @@
     </footer>
 
     <!-- <script src="../week1/js/week1.js"></script> -->
-    <script src="js/localstorage.js"></script>
+    <script src="js/ls.js"></script>
+    <script src="js/todo.js"></script>
 </body>
 
 </html>

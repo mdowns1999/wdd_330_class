@@ -1,0 +1,73 @@
+.challenge_1{
+    background-color: #8ea8c3;
+    margin:1rem auto;
+    max-width: 400px;
+}
+
+/* main{
+    text-align: center;
+} */
+
+
+#todo_list li{
+    list-style-type: none;
+    text-align: left;
+}
+
+.list_input, .challenge_1{
+    padding:10px;
+}
+
+.list_display, .todo_filter{
+    border:1px solid black;
+}
+
+
+
+input{
+    width:200px;
+    padding: 6px;
+}
+
+.toDoBtn{
+    font-size: 20px;
+    width:50px;
+}
+
+/* .list_display{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap:5px;
+} */
+
+.itemButton{
+    margin-left: 200px;
+    /* grid-column: 3/4; */
+}
+
+.strike{
+    text-decoration:line-through;
+}
+
+
+/*To do Filer*/
+.todo_filter{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    font-size: 15px;
+    padding:10px;
+    text-align: center;
+}
+a:hover{
+    background-color:white; 
+    color: black; 
+    transition-duration: 0.2s;
+}
+
+/* .selected_filter{
+    border:1px solid black;
+}
+
+.deselect_border{
+border: none;
+} */

@@ -65,7 +65,7 @@ a{
 }
 
 a:hover{
-    background-color: white;
+    background-color:white;
     padding:10px;
 }
 
@@ -90,6 +90,8 @@ a:hover{
     width:250px;
     padding:20px;
 }
+
+/***********************************************************TODO CSS****************************************************************/
 
 
 @media screen and (min-width: 700px){
