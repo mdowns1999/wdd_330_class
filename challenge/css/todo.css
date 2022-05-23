@@ -4,14 +4,14 @@
     max-width: 400px;
 }
 
-/* main{
-    text-align: center;
-} */
-
-
-#todo_list li{
+#todo_list{
     list-style-type: none;
-    text-align: left;
+}
+
+ li{
+    display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
 
 .list_input, .challenge_1{
@@ -21,8 +21,6 @@
 .list_display, .todo_filter{
     border:1px solid black;
 }
-
-
 
 input{
     width:200px;
@@ -34,12 +32,6 @@ input{
     width:50px;
 }
 
-/* .list_display{
-    display:grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap:5px;
-} */
-
 .itemButton{
     margin-left: 200px;
     /* grid-column: 3/4; */
@@ -49,8 +41,7 @@ input{
     text-decoration:line-through;
 }
 
-
-/*To do Filer*/
+/*To do Fitler buttons*/
 .todo_filter{
     display:grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -63,11 +54,3 @@ a:hover{
     color: black; 
     transition-duration: 0.2s;
 }
-
-/* .selected_filter{
-    border:1px solid black;
-}
-
-.deselect_border{
-border: none;
-} */
