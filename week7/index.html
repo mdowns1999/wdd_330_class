@@ -18,16 +18,20 @@
         <h2>Notes:</h2>
         <ul>
             <li>Functions can take objects as parameters</li>
-            <li>The call() method can invoke the 'this' to be used in th efunction.  However, if you call the function with the call method that does not have an object being used, you have to inculde null as th efirst parameter</li>
+            <li>The call() method can invoke the 'this' to be used in th efunction. However, if you call the function
+                with the call method that does not have an object being used, you have to inculde null as th efirst
+                parameter</li>
             <li>You can cahce info so you do not have to compute a certain vaule again</li>
             <li>Temporary functions can used to not pollute global variables</li>
             <li>IIFEs are called immediatly and can be used with page loads, objects, etc</li>
             <li>Recurions ae good, but make sure to have a bse case so the function knows when to stop</li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li>A fetch method has one required argument, the data you want to bring in. You would then use a .then to
+                tell the software what to do. Using a catch with the fetch and then is good to return to the user a
+                message if the server has an error.</li>
+            <li>The redirect method can redirect you to another URL and give you a new promise. The method is not
+                suppoted in any browser</li>
+            <li>The json() method returns a JSON file that has been converted into a javascript object</li>
+            <li>The Headers have information about the file. Use the has() to see if header has certian arguments.</li>
         </ul>
 
 
@@ -35,6 +39,13 @@
 
 
         <h2>Exercises:</h2>
+
+        <h3>Reading Ajax Example:</h3>
+        <button id='number'>Number Fact</button>
+        <button id='chuck'>Chuck Norris Fact</button>
+        <div id='output'>
+
+        </div>
 
 
         <div class="button_box">
