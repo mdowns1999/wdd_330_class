@@ -27,26 +27,64 @@
                 negitive number, for clockwisw, put in a positive number. You can also specifcy if you are using
                 degrees, radians, etc.</li>
             <li>Skew function: Skews the words or image bassed off of x/y coordinates</li>
-            <li>List of trasition functions: <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties" alt="List Link">List Link</a></li>
-            <li>We have many tansition functions: transition-timing-function, transition-duration, and others can help us with the timing of the transition.</li>
+            <li>List of trasition functions: <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties" alt="List Link">List
+                    Link</a></li>
+            <li>We have many tansition functions: transition-timing-function, transition-duration, and others can help
+                us with the timing of the transition.</li>
             <li>Browsers do not support quoted animation names</li>
 
             <h3>Chapter 11 Notes:</h3>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li>You must specify the hieght and width of th ecanvas tag or else it will default to a width of 300pc and
+                a height of 150px</li>
+            <li>You can draw images on the canvas</li>
+            <li>You can draw text on the canvas. You can use properties such as context.textAlign,
+                context.fillStyle(font color), or context.font(for text font)</li>
+            <li>Text on canvas does not work well with screen readers right now.</li>
+            <li>SVG images can preserve their quality</li>
+            <li><a src="https://openclipart.org/">This is a link for free clip art donated by people</a></li>
         </ul>
 
 
         <h2>Questions:</h2>
-        <p>For CSS animations, is it better to use Javascript on larger animations and CSS on smaller ones so we can have the best performance?</p>
-
+        <ul>
+            <li>
+                For CSS animations, is it better to use Javascript on larger animations and CSS on smaller ones so we can
+            have the best performance?
+            </li>
+            <li>
+                How often is canvas and svg used?  I feel like the drag and drop would be used more frquently than the other two.
+            </li>
+        </ul>
 
 
         <h2>Exercises:</h2>
         <p>No Exercises for this Week.</p>
+
+        <h3>Weekly Coding Examples</h3>
+        <!-- <canvas id="myCanvas" class="myCanvas" width="200" height="200">
+            Sorry! Your browser doesn’t support Canvas.
+        </canvas> -->
+
+        <canvas width="200" height="200" id="demo6" class="myCanvas">
+            Sorry! Your browser doesn't support Canvas.
+        </canvas>
+
+        <img data-src="https://learnable-static.s3.amazonaws.com/premium/reeedr/books/html5-css3-for-the-real-world-2nd-edition/images/html5-logo.png"
+            id="myImageElem">
+
+
+        <!--SVG EXAMPLE: View box defines its location-->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+            <circle cx="50" cy="50" r="25" fill="red" />
+        </svg>
+
+        <!--Draw a rectangle-->
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 400 400">
+            <desc>Drawing a rectangle</desc>
+            <rect x="10" y="0" width="100" height="100" fill="blue" stroke="red" stroke-width="2" />
+
+        </svg>
 
 
 

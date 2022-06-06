@@ -1,6 +1,15 @@
-h1 span {
+/* h1 span {
     transition-property: transform; 
     transition-duration: 0.2s;  
     transition-timing-function: ease-out;
     transition-delay: 50ms;
+} */
+
+.myCanvas {
+    border: dotted 2px black;
+    /* margin: 0 20px; */
+}
+
+.draganddrop .mc {
+    text-align: center; 
 }
