@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="css/week9.css">
+    <title>WDD 330 Portfolio</title>
+</head>
+
+<body>
+    <header>
+        <h1>Week 9 Projects:</h1>
+    </header>
+
+    <main>
+        <h2>Notes:</h2>
+
+        <ul>
+            <li>WHen refering to a global variable, you do not need to refer to the window object.</li>
+            <li>window.location.href - refers to current URL of page</li>
+            <li>location.host/location.hostname of window.location will give the current URL</li>
+            <li>.protocol will get the https of the URL</li>
+            <li>.assign will load and URL source</li>
+            <li>window.history will show Broswer history</li>
+            <li> window.history.go() can be used to go to a specific page. -1 is pevious, 1 is next, and 0 is current
+                page</li>
+            <li>window.moveTo(0,0) will use X Y coordinates to move thw window on the screen</li>
+            <li>TO make a cookie, use document.cookie</li>
+            <li>USe .split to seperate cookies in the jar</li>
+            <li>Add secure on the end of th ecookie to make it secure</li>
+
+            <h3>HTML API's</h3>
+            <li>HTML Data API: local storage. Similar to cookies, but fewer restrictions and greater storage capacity.
+            </li>
+            <li>HTML API: GeoLocation. Will get X, Y coordinates of where you are</li>
+            <li>Web WOrkers will download file at the same time your current file loads</li>
+            <li>Html has video and audio tags to help make it esier to play video or audio</li>
+
+        </ul>
+
+
+        <h2>Questions:</h2>
+        <ul>
+            <li>In your experince, how often was the canvas, video, or audio elements used in your work?</li>
+        </ul>
+
+
+        <h2>Exercises:</h2>
+
+        <h3>Animation Example</h3>
+        <div id='square'></div>
+
+        <h3>Canvas Example</h3>
+        <canvas id='canvas' width='400' height='400'>Sorry, but your browser does not support the canvas
+            element</canvas>
+
+
+
+        <div class="button_box">
+            <a href="../index.html" class="button">Back to Portal Home</a>
+        </div>
+
+
+    </main>
+
+    <footer>
+        <p>&copy;<span id="year"></span> | Mike Downs | WDD 330</p>
+    </footer>
+
+    <script src="js/week9.js"></script>
+</body>
+
+</html>
