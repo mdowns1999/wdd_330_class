@@ -35,6 +35,10 @@ function add_list(){
           url: "week9/index.html"
         },
         {
+          label: "Week 10 notes",
+          url: "week10/index.html"
+        },
+        {
           label: "Team Projects",
           url: "team_projects/index.html"
         },
