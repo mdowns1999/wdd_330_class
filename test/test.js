@@ -2,11 +2,11 @@ let button = document.querySelector('#submit');
 
 function test()
 {
-    let name = document.querySelector("#name").value;
-    let comment = document.querySelector("#comment").value;
-
-    console.log(name)
-    console.log(comment)
+    console.log('Hello')
 }
-
-button.addEventListener('click', test)
+let value = button.addEventListener('click', true)
+console.log(value)
+if(value === true)
+{
+    console.log(hello)
+}
