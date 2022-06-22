@@ -8,9 +8,41 @@
     <title>Final Project:</title>
 </head>
 <body>
-    
+    <header>
+        <h1>5-Day Weather Forecast</h1>
+    </header>
+            <!-- <p id="selection">Select</p> -->
+            <!-- <select name="city_dropdown" onchange="add_temple(this.value);"></select> -->
+    <main>
+        <div id="selection_area"> 
+            
+            <h1 id="cityHeader">City: Rexburg</h1> 
+            
+            
+
+            <select name="city_dropdown">
+                <option value="0">Rexburg</option>    
+                <option value= "1" >Logan</option>
+                <option value="2">Tacoma</option>         
+                </select>
+        
+        
+        
+        </div>
+
+        <div id="forecast_box"></div>
 
 
-    <script src="js/final.js"></script>
+        <div id="day_forecast"></div>
+        
+    </main>
+
+    <footer>
+        <p>&copy;<span id="year"></span> | Mike Downs | WDD 330</p>
+        <p><a href="https://openweathermap.org/api" target="_blank">Data from Weather API</a></p>
+    </footer>
+
+
+    <script src="js/final.js" type="module"></script>
 </body>
 </html>

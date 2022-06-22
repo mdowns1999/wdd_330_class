@@ -10,9 +10,9 @@ class Storage {
     }
 
     // MAKE AN OBJECT OUT OF EACH ITEM
-    createObject(content, list)
+    createObject(url)
     {
-    let toDo = { ID : new Date(), content: content, completed: false }
+    let toDo = { Link: url }
     list.push(toDo)
     this.setStorage(list)
     }
