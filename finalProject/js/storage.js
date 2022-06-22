@@ -1,6 +1,4 @@
-//export default 
-
-class Storage {
+export default class Storage {
     'use strict'
     // convert objects into json
     convertToJson(object)

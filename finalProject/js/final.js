@@ -1,5 +1,6 @@
 'use strict';
 import {getJson} from "./fetch.js";
+import Storage from "./storage.js";
 
 /*****************************************
  * FOOTER DATE
