@@ -1,15 +1,16 @@
-// export function addForecast(jsObject)
-// {
-//     let temp = convertToFaherheit(jsObject.list[0].main.temp)
-    
-// }
-
+/*****************************************
+ * CONVERT TO FAHERHEIT
+ * Convert from Kelvin to Faherheit
+ * ***************************************/
 function convertToFaherheit(temp)
 {
     return ((temp - 273.15)* 1.8000 + 32.00).toFixed(1);
 }
 
-
+/*****************************************
+ * ADD WEATHER
+ * Add the Five day Forecast to Page
+ * ***************************************/
 function addWeather(array, iconsrc, date)
 {
     let forecastBox = document.querySelector("#forecast_box");
@@ -45,6 +46,10 @@ function addWeather(array, iconsrc, date)
     </div>`;
 }
 
+/*****************************************
+ * ADD TODAYS WEATHER
+ * Add a single day of weather
+ * ***************************************/
 function addTodayWeather(tempArray, iconArray)
 {
     let forecastBox = document.querySelector("#day_forecast");
@@ -61,6 +66,11 @@ function addTodayWeather(tempArray, iconArray)
     </div>`;
 }
 
+/*****************************************
+ * GET TEMPERATURE LIST
+ * Get the List of temperatures so we can 
+ * display them
+ * ***************************************/
 function getTempList(jsObject)
 {
     //NOTE THERE IS 8 SPACES IMBETWEEN DAYS
@@ -79,6 +89,11 @@ function getTempList(jsObject)
         return arrayTemp;
 }
 
+/*****************************************
+ * GET ICON LIST
+ * Get the List of icons so we can 
+ * display them
+ * ***************************************/
 function getIconList(jsObject)
 {
     //NOTE THERE IS 8 SPACES IMBETWEEN DAYS
@@ -97,12 +112,10 @@ function getIconList(jsObject)
         return arrayIcon;
 }
 
-function displayDates()
-{
-    let date = document.querySelector("#date");
-    let day = new Date().getDate() + 1;
-    date.textContent = day;
-}
+/*****************************************
+ * GET JSON
+ * Will Begin building th eweather forecast blocks
+ * ***************************************/
 export function getJson(url)
 {
     return fetch(url)
@@ -120,7 +133,7 @@ export function getJson(url)
         let date = new Date()
         addWeather(arrayTemp, arrayIcon, date);
         addTodayWeather(arrayTemp, arrayIcon);
-        //displayDates();
+
 
     }
     
