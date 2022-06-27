@@ -88,10 +88,14 @@ select {
     background-color: lightblue;
     margin:1px;
     padding:40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
 }
 
 .fiveDayIcon{
     justify-self: center;
+    width:80px;
 }
 
 
@@ -120,6 +124,9 @@ select {
     font-size:25px;
 }
 
+#weatherInfo #weatherDesc::first-letter{
+    text-transform: uppercase;
+}
 
 
 
@@ -149,6 +156,10 @@ select {
     /*************CSS for 5 day Boxes********************/
 
 
+    .fiveDayIcon{
+        justify-self: center;
+        width:110px;
+    }
 
 
     /*************CSS for Daily Box********************/

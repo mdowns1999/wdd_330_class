@@ -1,3 +1,41 @@
+class Storage {
+    'use strict'
+    // convert objects into json
+    convertToJson(object)
+    {
+    let jsonObject = JSON.stringify(object)
+    return jsonObject
+    }
+
+    // // MAKE AN OBJECT OUT OF EACH ITEM
+    // createObject(url)
+    // {
+    // let toDo = { Link: url }
+    // list.push(toDo)
+    // this.setStorage(list)
+    // }
+
+    // Get Items from local storage
+    getStorage(item)
+    {
+    let JSONobject = localStorage.getItem(item);
+    return JSON.parse(JSONobject)
+    }
+
+    // Set Items to local storage
+    setStorage(item, list)
+    {
+    let jsonObject = this.convertToJson(list)
+    //console.log(jsonObject)
+    localStorage.setItem(item, jsonObject);
+    }
+
+
+}
+
+let storage = new Storage()
+
+
 /*****************************************
  * CONVERT TO FAHERHEIT
  * Convert from Kelvin to Faherheit
@@ -118,9 +156,7 @@
   * ***************************************/
  function displayWeather()
  {
-     let url = localStorage.getItem("Url")
-     url = JSON.parse(url)
-     console.log(url)
+     let url = storage.getStorage("Url")
      return fetch(url)
      .then(response =>response.json())
      .then(jsObject => {
@@ -137,4 +173,79 @@
          addTodayWeather(jsObject, arrayTemp, arrayIcon);
      });
  }
- 
+
+
+function createObjectList()
+{
+    //List of cities
+    let urlList = [
+        {
+            "city" : "https://api.openweathermap.org/data/2.5/forecast?lat=43.826073&lon=-111.789536&appid=c2e08ce85fa8ed0115b03b7b5575df7f",
+            "name" : "Rexburg Idaho"
+        },
+        {
+            "city" : "https://api.openweathermap.org/data/2.5/forecast?lat=41.743546&lon=-111.83585&appid=c2e08ce85fa8ed0115b03b7b5575df7f",
+            "name" : "Logan Utah"
+        },
+        {
+            "city" : "https://api.openweathermap.org/data/2.5/forecast?lat=47.267418&lon=-122.4673&appid=c2e08ce85fa8ed0115b03b7b5575df7f",
+            "name" : "Tacoma Washington"
+        }
+        ];
+        storage.setStorage("Item", urlList);
+}
+
+/*****************************************
+ * RETRIVE URL
+ * Get the Url from Local Storage
+ * ***************************************/
+ function retriveUrl(selectNum)
+ {
+    
+    console.log(selectNum)
+     //Get object from Storage
+     let object = storage.getStorage("Item")
+     //console.log(object[0].city)
+
+    //Go through the objects and find the correct link to display
+    for(let i = 0; i < object.length; i++)
+    {
+        if (object[i].city == object[selectNum].city)
+        {
+            // console.log("Found it!")
+            // console.log(object[i])
+            //Display name of City
+            document.querySelector("#cityHeader").textContent = object[i].name;
+
+            storage.setStorage("Url", object[i].city )
+            console.log(object[i].city)
+        }
+    }
+ }
+
+
+function update() {
+    console.log("UPDATE")
+    var select = document.getElementById('city_dropdown');
+    var option = select.options[select.selectedIndex];
+    console.log(parseInt(option.value))
+    retriveUrl(parseInt(option.value))
+    displayWeather()
+
+}
+
+/*****************************************
+ * MAIN
+ * Start the program
+ * ***************************************/
+
+function main()
+{
+    //Create list of weather API's
+    createObjectList();
+
+    update()
+
+}
+
+main()

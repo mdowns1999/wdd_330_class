@@ -7,13 +7,13 @@ export default class Storage {
     return jsonObject
     }
 
-    // MAKE AN OBJECT OUT OF EACH ITEM
-    createObject(url)
-    {
-    let toDo = { Link: url }
-    list.push(toDo)
-    this.setStorage(list)
-    }
+    // // MAKE AN OBJECT OUT OF EACH ITEM
+    // createObject(url)
+    // {
+    // let toDo = { Link: url }
+    // list.push(toDo)
+    // this.setStorage(list)
+    // }
 
     // Get Items from local storage
     getStorage()
@@ -29,5 +29,6 @@ export default class Storage {
     //console.log(jsonObject)
     localStorage.setItem("Item", jsonObject);
     }
+
 
 }
