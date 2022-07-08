@@ -33,7 +33,7 @@ let storage = new Storage()
  * ***************************************/
  function convertToFaherheit(temp)
  {
-     return ((temp - 273.15)* 1.8000 + 32.00).toFixed(1);
+    return ((temp - 273.15)* 1.8000 + 32.00).toFixed(1);
  }
  
  /*****************************************
@@ -108,7 +108,7 @@ function addWeather(arrayMaxTemp, arrayMinTemp, iconsrc, date)
     let count = 0;
         for(let tem in jsObject.list)
         {
-             //Generate Each days temps
+            //Generate Each days temps
             if (count == 0 || count == 8 || count == 16 || count == 24 || count == 32)
                 {
                     let tempF = convertToFaherheit(jsObject.list[tem].main.temp_max)
@@ -144,7 +144,7 @@ function addWeather(arrayMaxTemp, arrayMinTemp, iconsrc, date)
             count ++;
         }   
   
-           console.table(arrayMinTemp)
+        console.table(arrayMinTemp)
         return arrayMinTemp;
    }
 
@@ -173,7 +173,7 @@ function addWeather(arrayMaxTemp, arrayMinTemp, iconsrc, date)
  }
  
  /*****************************************
-  * GET JSON
+  * DISPLAY WEATHER
   * Will Begin building th eweather forecast blocks
   * ***************************************/
  function displayWeather()
@@ -203,6 +203,10 @@ function addWeather(arrayMaxTemp, arrayMinTemp, iconsrc, date)
  }
 
 
+/*****************************************
+  * CREATE OBJECT LIST
+  * Create object and store it
+  * ***************************************/
 function createObjectList()
 {
     //List of cities
@@ -220,6 +224,8 @@ function createObjectList()
             "name" : "Tacoma Washington"
         }
         ];
+
+        //Store Object
         storage.setStorage("Item", urlList);
 }
 
@@ -251,7 +257,10 @@ function createObjectList()
     }
  }
 
-
+  /*****************************************
+  * UPDATE
+  * Get the Selected URL and send it to rest of program
+  * ***************************************/
 function update() {
     console.log("UPDATE")
     var select = document.getElementById('city_dropdown');
