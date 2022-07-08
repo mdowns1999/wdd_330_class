@@ -98,6 +98,9 @@ select {
     width:80px;
 }
 
+.highLow{
+    font-size: 14px;
+}
 
 
 
@@ -180,6 +183,10 @@ select {
     #weatherInfo{
         grid-column:2/3;
         grid-row:2/3;
+    }
+
+    .highLow{
+        font-size: 15px;
     }
 
 }

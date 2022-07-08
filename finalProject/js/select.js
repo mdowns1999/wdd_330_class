@@ -7,14 +7,6 @@ class Storage {
     return jsonObject
     }
 
-    // // MAKE AN OBJECT OUT OF EACH ITEM
-    // createObject(url)
-    // {
-    // let toDo = { Link: url }
-    // list.push(toDo)
-    // this.setStorage(list)
-    // }
-
     // Get Items from local storage
     getStorage(item)
     {
@@ -29,10 +21,9 @@ class Storage {
     //console.log(jsonObject)
     localStorage.setItem(item, jsonObject);
     }
-
-
 }
 
+//Use Storage Class in functions down below
 let storage = new Storage()
 
 
@@ -49,46 +40,46 @@ let storage = new Storage()
   * ADD WEATHER
   * Add the Five day Forecast to Page
   * ***************************************/
- function addWeather(array, iconsrc, date)
- {
-     let forecastBox = document.querySelector("#forecast_box");
-     forecastBox.innerHTML = 
-     `<div class="day_box">
-     <h3 id="date"> ${date.getMonth() + 1}/${date.getDate()}</h3>
-         <img src="${iconsrc[0]}" class = "fiveDayIcon">
-         <p><span>${array[0]}</span> &deg;F</p>
-     </div>
+function addWeather(arrayMaxTemp, arrayMinTemp, iconsrc, date)
+{
+    let forecastBox = document.querySelector("#forecast_box");
+    forecastBox.innerHTML = 
+    `<div class="day_box">
+    <h3 id="date"> ${date.getMonth() + 1}/${date.getDate()}</h3>
+        <img src="${iconsrc[0]}" class = "fiveDayIcon">
+        <p class="highLow"><span>${arrayMaxTemp[0]}</span> &deg;F / <span>${arrayMinTemp[0]}</span> &deg;F</p>
+    </div>
  
-     <div class="day_box">
-         <h3 id="date">${date.getMonth() + 1}/${date.getDate() + 1} </h3>
-         <img src="${iconsrc[1]}" class = "fiveDayIcon">
-         <p><span>${array[1]}</span> &deg;F</p>
-     </div>
+    <div class="day_box">
+        <h3 id="date">${date.getMonth() + 1}/${date.getDate() + 1} </h3>
+        <img src="${iconsrc[1]}" class = "fiveDayIcon">
+        <p class="highLow"><span>${arrayMaxTemp[1]}</span> &deg;F / <span>${arrayMinTemp[1]}</span> &deg;F</p>
+    </div>
+
+    <div class="day_box">
+        <h3 id="date">${date.getMonth() + 1}/${date.getDate() + 2} </h3>
+        <img src="${iconsrc[2]}" class = "fiveDayIcon">
+        <p class="highLow"><span>${arrayMaxTemp[2]}</span> &deg;F / <span>${arrayMinTemp[2]}</span> &deg;F</p>
+    </div>
+
+    <div class="day_box">
+        <h3 id="date">${date.getMonth() + 1}/${date.getDate() + 3} </h3>
+        <img src="${iconsrc[3]}" class = "fiveDayIcon">
+        <p class="highLow"><span>${arrayMaxTemp[3]}</span> &deg;F / <span>${arrayMinTemp[3]}</span> &deg;F</p>
+    </div>
  
-     <div class="day_box">
-         <h3 id="date">${date.getMonth() + 1}/${date.getDate() + 2} </h3>
-         <img src="${iconsrc[2]}" class = "fiveDayIcon">
-         <p><span>${array[2]}</span> &deg;F</p>
-     </div>
- 
-     <div class="day_box">
-         <h3 id="date">${date.getMonth() + 1}/${date.getDate() + 3} </h3>
-         <img src="${iconsrc[3]}" class = "fiveDayIcon">
-         <p><span>${array[3]}</span> &deg;F</p>
-     </div>
- 
-     <div class="day_box">
-         <h3 id="date">${date.getMonth() + 1}/${date.getDate() + 4} </h3>
-         <img src="${iconsrc[4]}" class = "fiveDayIcon">
-         <p><span>${array[4]}</span> &deg;F</p>
-     </div>`;
- }
- 
+    <div class="day_box">
+        <h3 id="date">${date.getMonth() + 1}/${date.getDate() + 4} </h3>
+        <img src="${iconsrc[4]}" class = "fiveDayIcon">
+        <p class="highLow"><span>${arrayMaxTemp[4]}</span> &deg;F / <span>${arrayMinTemp[4]}</span> &deg;F</p>
+    </div>`;
+}
+
  /*****************************************
   * ADD TODAYS WEATHER
   * Add a single day of weather
   * ***************************************/
- function addTodayWeather(jsObject, tempArray, iconArray)
+ function addTodayWeather(jsObject, dailyTemp, iconArray)
  {
      let forecastBox = document.querySelector("#day_forecast");
      forecastBox.innerHTML = 
@@ -97,7 +88,7 @@ let storage = new Storage()
      <img src="${iconArray[0]}" alt="Weather Icon" id="todayIcon">
  
      <div id="weatherInfo">
-     <p id="weatherTemp">Temperature: ${tempArray[0]} Degrees</p>
+     <p id="weatherTemp">Temperature: ${dailyTemp} Degrees</p>
      <p id="weatherDesc">${jsObject.list[0].weather[0].description}</p>
      <p id="weatherWind">The wind is ${jsObject.list[0].wind.speed} MPH</p>
      
@@ -105,28 +96,59 @@ let storage = new Storage()
  }
  
  /*****************************************
-  * GET TEMPERATURE LIST
-  * Get the List of temperatures so we can 
+  * GET Max TEMPERATURE LIST
+  * Get the List of Max temperatures so we can 
   * display them
   * ***************************************/
- function getTempList(jsObject)
+ function getMaxTempList(jsObject)
  {
+    console.log(jsObject)
      //NOTE THERE IS 8 SPACES IMBETWEEN DAYS
-     let arrayTemp = []
-     let count = 0;
-         for(let tem in jsObject.list)
-         {
+    let arrayMaxTemp = []
+    let count = 0;
+        for(let tem in jsObject.list)
+        {
              //Generate Each days temps
-             if (count == 0 || count == 8 || count == 16 || count == 24 || count == 32)
-                 {
-                     let tempF = convertToFaherheit(jsObject.list[tem].main.temp)
-                     arrayTemp.push(tempF)                   
-                 }
-             count ++;
-         }   
-         return arrayTemp;
+            if (count == 0 || count == 8 || count == 16 || count == 24 || count == 32)
+                {
+                    let tempF = convertToFaherheit(jsObject.list[tem].main.temp_max)
+                    arrayMaxTemp.push(tempF)                   
+                }
+            count ++;
+        }   
+
+        console.table(arrayMaxTemp)
+        return arrayMaxTemp;
  }
  
+
+  /*****************************************
+  * GET Min TEMPERATURE LIST
+  * Get the List of Min temperatures so we can 
+  * display them
+  * ***************************************/
+   function getMinTempList(jsObject)
+   {
+    console.log(jsObject)
+       //NOTE THERE IS 8 SPACES IMBETWEEN DAYS
+    let arrayMinTemp = []
+    let count = 0;
+        for(let tem in jsObject.list)
+        {
+            //Generate Each days temps
+            if (count == 0 || count == 8 || count == 16 || count == 24 || count == 32)
+                {
+                    let tempF = convertToFaherheit(jsObject.list[tem].main.temp_min)
+                    arrayMinTemp.push(tempF)                   
+                }
+            count ++;
+        }   
+  
+           console.table(arrayMinTemp)
+        return arrayMinTemp;
+   }
+
+
  /*****************************************
   * GET ICON LIST
   * Get the List of icons so we can 
@@ -160,17 +182,23 @@ let storage = new Storage()
      return fetch(url)
      .then(response =>response.json())
      .then(jsObject => {
-         //Get Array of Temp
-         let arrayTemp = getTempList(jsObject);
-         //console.table(arrayTemp)
+         //Get Array of Max Temp
+         let arrayMaxTemp = getMaxTempList(jsObject);
+         //console.table(arrayMaxTemp)
+
+         //Get Array of Min Temp
+        let arrayMinTemp = getMinTempList(jsObject);
+         //console.table(arrayMinTemp)
  
          //Get Array of Icons
-         let arrayIcon = getIconList(jsObject);
+        let arrayIcon = getIconList(jsObject);
          //console.table(arrayIcon)
  
-         let date = new Date()
-         addWeather(arrayTemp, arrayIcon, date);
-         addTodayWeather(jsObject, arrayTemp, arrayIcon);
+        let date = new Date()
+        addWeather(arrayMaxTemp, arrayMinTemp, arrayIcon, date);
+
+        let dailyTemp = convertToFaherheit(jsObject.list[0].main.temp)
+        addTodayWeather(jsObject,dailyTemp,arrayIcon);
      });
  }
 
