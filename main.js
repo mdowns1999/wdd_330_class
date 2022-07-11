@@ -49,6 +49,10 @@ function add_list(){
         {
           label: "Challenge 1",
           url: "challenge/index.html"
+        },
+        {
+          label: "Final Project",
+          url: "finalProject/index.html"
         }
       ]
 
