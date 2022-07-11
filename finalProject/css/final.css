@@ -41,6 +41,9 @@ a:hover{
     color:white;
 }
 
+#selection_area select {
+    padding:10px;
+}
 
 
 /*COntainers for Main*/
