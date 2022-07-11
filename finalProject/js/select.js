@@ -31,12 +31,12 @@ let storage = new Storage()
  * CONVERT TO FAHERHEIT
  * Convert from Kelvin to Faherheit
  * ***************************************/
- function convertToFaherheit(temp)
- {
+function convertToFaherheit(temp)
+{
     return ((temp - 273.15)* 1.8000 + 32.00).toFixed(1);
- }
- 
- /*****************************************
+}
+
+/*****************************************
   * ADD WEATHER
   * Add the Five day Forecast to Page
   * ***************************************/
@@ -49,7 +49,7 @@ function addWeather(arrayMaxTemp, arrayMinTemp, iconsrc, date)
         <img src="${iconsrc[0]}" class = "fiveDayIcon">
         <p class="highLow"><span>${arrayMaxTemp[0]}</span> &deg;F / <span>${arrayMinTemp[0]}</span> &deg;F</p>
     </div>
- 
+
     <div class="day_box">
         <h3 id="date">${date.getMonth() + 1}/${date.getDate() + 1} </h3>
         <img src="${iconsrc[1]}" class = "fiveDayIcon">
@@ -75,33 +75,33 @@ function addWeather(arrayMaxTemp, arrayMinTemp, iconsrc, date)
     </div>`;
 }
 
- /*****************************************
+/*****************************************
   * ADD TODAYS WEATHER
   * Add a single day of weather
   * ***************************************/
- function addTodayWeather(jsObject, dailyTemp, iconArray)
- {
-     let forecastBox = document.querySelector("#day_forecast");
-     forecastBox.innerHTML = 
-     `            <h1 id="dailyHeading">Today's Forecast</h1>
- 
-     <img src="${iconArray[0]}" alt="Weather Icon" id="todayIcon">
- 
-     <div id="weatherInfo">
-     <p id="weatherTemp">Temperature: ${dailyTemp} Degrees</p>
-     <p id="weatherDesc">${jsObject.list[0].weather[0].description}</p>
-     <p id="weatherWind">The wind is ${jsObject.list[0].wind.speed} MPH</p>
-     
-     </div>`;
- }
- 
- /*****************************************
+function addTodayWeather(jsObject, dailyTemp, iconArray)
+{
+    let forecastBox = document.querySelector("#day_forecast");
+    forecastBox.innerHTML = 
+    `            <h1 id="dailyHeading">Today's Forecast</h1>
+
+    <img src="${iconArray[0]}" alt="Weather Icon" id="todayIcon">
+
+    <div id="weatherInfo">
+    <p id="weatherTemp">Temperature: ${dailyTemp} Degrees</p>
+    <p id="weatherDesc">${jsObject.list[0].weather[0].description}</p>
+    <p id="weatherWind">The wind is ${jsObject.list[0].wind.speed} MPH</p>
+    
+    </div>`;
+}
+
+/*****************************************
   * GET Max TEMPERATURE LIST
   * Get the List of Max temperatures so we can 
   * display them
   * ***************************************/
- function getMaxTempList(jsObject)
- {
+function getMaxTempList(jsObject)
+{
     console.log(jsObject)
      //NOTE THERE IS 8 SPACES IMBETWEEN DAYS
     let arrayMaxTemp = []
@@ -119,16 +119,16 @@ function addWeather(arrayMaxTemp, arrayMinTemp, iconsrc, date)
 
         console.table(arrayMaxTemp)
         return arrayMaxTemp;
- }
- 
+}
 
-  /*****************************************
+
+/*****************************************
   * GET Min TEMPERATURE LIST
   * Get the List of Min temperatures so we can 
   * display them
   * ***************************************/
-   function getMinTempList(jsObject)
-   {
+function getMinTempList(jsObject)
+{
     console.log(jsObject)
        //NOTE THERE IS 8 SPACES IMBETWEEN DAYS
     let arrayMinTemp = []
@@ -143,47 +143,47 @@ function addWeather(arrayMaxTemp, arrayMinTemp, iconsrc, date)
                 }
             count ++;
         }   
-  
+
         console.table(arrayMinTemp)
         return arrayMinTemp;
-   }
+    }
 
 
- /*****************************************
+/*****************************************
   * GET ICON LIST
   * Get the List of icons so we can 
   * display them
   * ***************************************/
- function getIconList(jsObject)
+function getIconList(jsObject)
  {
      //NOTE THERE IS 8 SPACES IMBETWEEN DAYS
-     let arrayIcon = []
-     let count = 0;
-         for(let pic in jsObject.list)
-         {
+    let arrayIcon = []
+    let count = 0;
+        for(let pic in jsObject.list)
+        {
              //Generate Each days temps
-             if (count == 0 || count == 8 || count == 16 || count == 24 || count == 32)
-                 {
-                     let iconPic = `https://openweathermap.org/img/w/${jsObject.list[pic].weather[0].icon}.png`
-                     arrayIcon.push(iconPic)                   
-                 }
-             count ++;
-         }   
-         return arrayIcon;
- }
- 
- /*****************************************
+            if (count == 0 || count == 8 || count == 16 || count == 24 || count == 32)
+                {
+                    let iconPic = `https://openweathermap.org/img/w/${jsObject.list[pic].weather[0].icon}.png`
+                    arrayIcon.push(iconPic)                   
+                }
+            count ++;
+        }   
+        return arrayIcon;
+}
+
+/*****************************************
   * DISPLAY WEATHER
   * Will Begin building th eweather forecast blocks
   * ***************************************/
- function displayWeather()
- {
-     let url = storage.getStorage("Url")
-     return fetch(url)
-     .then(response =>response.json())
-     .then(jsObject => {
+function displayWeather()
+{
+    let url = storage.getStorage("Url")
+    return fetch(url)
+    .then(response =>response.json())
+    .then(jsObject => {
          //Get Array of Max Temp
-         let arrayMaxTemp = getMaxTempList(jsObject);
+        let arrayMaxTemp = getMaxTempList(jsObject);
          //console.table(arrayMaxTemp)
 
          //Get Array of Min Temp
